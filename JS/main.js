@@ -1,28 +1,3 @@
-// HEADER
-
-const searchEl = document.querySelector('.search'); //document는 html이라는 요소라 이해해도 됨
-const searchInputEl = searchEl.querySelector('input'); //document.querySelector('.search input')으로 해도 되지만 너무 길어지니 왼쪽과 같이 바꿈
-
-searchEl.addEventListener('click', function() {
-  //핸들러 부분, logic을 입력함
-  searchInputEl.focus(); 
-});
-// 해석: searchEl에(이는 곧, .search가 선택자로 처음 나오는 것에) click이 되면 searchEl안에 있는 input부분에 다음 로직(focus)를 적용한다.  
- 
-searchInputEl.addEventListener('focus', function () {
-  searchEl.classList.add('focused');
-  searchInputEl.setAttribute('placeholder', '통합검색');
-}); 
-// 해석: input요소에 focus라는 event가 발생하면 .search가 있는 div요소에 focused라는 class를 더 부여하겠다
-// 해석: 마찬가지로 input요소에 focus라는 event가 발생하면 input 요소에 html속성인 palceholder를 부여하고 그 이름은 통합검색이라고 지정하겠다. 
-
-searchInputEl.addEventListener('blur', function () {
-  searchEl.classList.remove('focused');
-  searchInputEl.setAttribute('placeholder', '');
-}); 
-// 해석: input요소에 blur(focus 해제)라는 event가 발생하면 .search가 있는 div요소에서 focused라는 class를 제거한다
-// 해석: 거기에 placeholder는 빈 공란으로 바꾼다
-
 const badgeEl = document.querySelector('header .badges');
 const toTopEl = document.querySelector('#to-top');
 
@@ -193,12 +168,3 @@ spyEls.forEach(function (spyEl) {
     .addTo(new ScrollMagic.Controller()); 
 });
 // 애니메이션 처리는 부하가 너무 걸리는 무거운 js 보다는 css를 사용해주고, 만약 복잡한 애니메이션을 구사해야 한다면 js로 처리한다.
-
-
-
-// DAY
-
-const thisYear = document.querySelector('.this-year');
-thisYear.textContent = new Date().getFullYear(); // 현재 연도를 반영함. this- year에 들어가게 됨.  
-
-
